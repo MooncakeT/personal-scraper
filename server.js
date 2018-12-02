@@ -18,7 +18,7 @@ app.get('/dragon/:keyword', (req, res) => {
 
 //define function to find dragon pictures
   function findDragonImage(keyword) { //defines function to find dragon pictures
-    var nightmare = Nightmare({show: true}); //shows bot searching or not
+    var nightmare = Nightmare({show: true}); //creates bot & shows it searching or not
 
     return nightmare
       .goto('https://www.google.com') //goes to google
@@ -37,7 +37,7 @@ app.get('/dragon/:keyword', (req, res) => {
       })
       .end() //doing something new
       .then(function (result) {
-        return result.slice(0, 6); //cuts down # of images found to 6
+        return result.slice(1, 7); //cuts down # of images found to 6
       })
       .then(function (images) {
         res.json(images); //gives back images to user
